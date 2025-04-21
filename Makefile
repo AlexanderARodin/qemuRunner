@@ -7,6 +7,7 @@ run:
 edit:
 	@echo 'edit?'
 
+savetogit: git.pushall
 
 git.pushall: git.commitall
 	@git push
