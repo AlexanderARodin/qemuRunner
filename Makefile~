@@ -2,7 +2,7 @@ help:
 	@cat Makefile
 
 run:
-	@./scripts/loadCoreInitrd.sh
+	@echo 'run?'
 
 edit:
 	@nvim scripts/loadCoreInitrd.sh
