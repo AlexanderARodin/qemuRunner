@@ -5,13 +5,12 @@ rescuer:
 	@./scripts/rescuer.sh ./target/$(disk)
 
 run:
-	@echo 'run?'
+	@./scripts/loadCoreInitrd.sh
 
 edit:
-	@echo 'edit?'
+	@nvim scripts/loadCoreInitrd.sh
 
 savetogit: git.pushall
-
 git.pushall: git.commitall
 	@git push
 git.commitall: git.addall
