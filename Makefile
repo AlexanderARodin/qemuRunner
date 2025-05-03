@@ -1,6 +1,9 @@
 help:
 	@cat Makefile
 
+rescuer:
+	@./scripts/rescuer.sh ./target/$(disk)
+
 run:
 	@echo 'run?'
 
