@@ -2,9 +2,9 @@
 set -e
 set -x
 
-machineOpts="-machine q35 -m 2G"
-cpuOpts="-cpu host -smp 2"
 acceleratorOpts="-accel hvf"
+cpuOpts="-cpu host -smp 2"
+machineOpts="-machine q35 -m 2G"
 deviceOpts="-device virtio-rng-pci,rng=rng0,addr=1f.4"
 backendOpts="-object rng-random,id=rng0,filename=/dev/urandom"
 
@@ -28,9 +28,9 @@ backendOpts="$backendOpts -blockdev node-name=vHD,driver=qcow2,file.driver=file,
 #interfaceOpts="-nographic -serial mon:stdio"
 
 #qemu-system-x86_64 \
-#                [machine opts] \
-#                [cpu opts] \
 #                [accelerator opts] \
+#                [cpu opts] \
+#                [machine opts] \
 #                [device opts] \
 #                [backend opts] \
 #                [interface opts] \

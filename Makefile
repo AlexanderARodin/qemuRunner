@@ -5,7 +5,7 @@ rescuer:
 	@./scripts/rescuer.sh ./target/$(disk)
 
 run:
-	@./scripts/loadCoreInitrd.sh
+	@./scripts/loadCoreInitrd.sh vmlinuz-buster64 dCore-buster64.gz
 
 edit:
 	@nvim scripts/loadCoreInitrd.sh
