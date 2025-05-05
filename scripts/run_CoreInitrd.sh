@@ -1,7 +1,5 @@
 #!/bin/bash
 set -e
-set -x
-
 
 cpuOpts="-cpu qemu64 -smp 2"
 machineOpts="-machine q35 -m 2G"
@@ -13,13 +11,15 @@ deviceOpts="$deviceOpts -device virtio-net,netdev=vmnic"
 backendOpts="$backendOpts -netdev user,ipv6=off,id=vmnic"
 
 
+#interfaceOpts="-nographic -serial"
 
+set -x
 qemu-system-x86_64 \
 	$acceleratorOpts \
 	$cpuOpts \
 	$machineOpts \
-	-kernel ./target/boot/$1 \
-	-initrd ./target/boot/$2 \
+	-kernel ./target/$1 \
+	-initrd ./target/$2 \
 	-append "tsc=unstable clocksource=hpet" \
 	$interfaceOpts \
 	$deviceOpts \
@@ -27,6 +27,8 @@ qemu-system-x86_64 \
 	$interfaceOpts
 
 
+#	-append "console=ttyS0" \
+#	-append "earlyprintk=ttyS0 console=ttyS0" \
 #	-append "tsc=unstable clocksource=hpet RAADBG=PROC,SYS,MDEV,MODULES,TESTS,SHELL" \
 #interfaceOpts="-nographic"
 #interfaceOpts="-serial mon:stdio"

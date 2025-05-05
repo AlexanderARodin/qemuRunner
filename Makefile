@@ -2,13 +2,19 @@ help:
 	@cat Makefile
 
 rescuer:
-	@./scripts/rescuer.sh ./target/$(disk)
+	@./scripts/run_rescuer.sh ./target/$(disk)
 
-run:
-	@./scripts/loadCoreInitrd.sh vmlinuz-buster64 dCore-buster64.gz
+
+run.test:
+	@./scripts/run_CoreInitrd.sh bzImage initrd.gz
+
+run.core:
+	@./scripts/run_CoreInitrd.sh boot/vmlinuz64 boot/corepure64.gz
+run.dcore:
+	@./scripts/run_CoreInitrd.sh boot/vmlinuz-buster64 boot/dCore-buster64.gz
 
 edit:
-	@nvim scripts/loadCoreInitrd.sh
+	@nvim scripts/run_CoreInitrd.sh
 
 savetogit: git.pushall
 git.pushall: git.commitall
