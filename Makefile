@@ -6,7 +6,8 @@ rescuer:
 
 
 run.test:
-	@./scripts/run_CoreInitrd.sh bzImage initrd.gz
+	@cd ../chrooter/ && make allin
+	@./scripts/run_CoreInitrd.sh bzImage current-initrd.gz
 
 run.core:
 	@./scripts/run_CoreInitrd.sh boot/vmlinuz64 boot/corepure64.gz
